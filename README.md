@@ -1,6 +1,6 @@
 # GuardianSense AI MVP
 
-## Descripción del Proyecto
+## Descripción del proyecto
 
 GuardianSense AI es un ecosistema de protección inteligente que transforma fundamentalmente el concepto de seguro tradicional, pasando de un modelo reactivo a uno predictivo y preventivo. Este MVP (Producto Mínimo Viable) demuestra cómo la tecnología puede anticipar necesidades y activar microprotecciones automáticamente, creando una capa de seguridad invisible pero omnipresente.
 
@@ -11,13 +11,13 @@ GuardianSense AI es un ecosistema de protección inteligente que transforma fund
 - Experiencia fragmentada: el usuario debe configurar, reclamar y gestionar manualmente
 - En Colombia hay una baja penetración del mercado dada por la complejidad percibida y la desconfianza
 
-## Equipo de Desarrollo
+## Equipo de desarrollo
 
 - Santiago Escobar León
 - Alejandro Londoño Bermúdez
 - Alejandro Torres Soto
 
-## Instalación y Ejecución
+## Instalación y ejecución
 
 ### Prerequisitos
 - Node.js y npm instalados en tu sistema
@@ -64,7 +64,7 @@ GuardianSense AI es un ecosistema de protección inteligente que transforma fund
 
 **Problema que resuelve:** Elimina la necesidad de que el usuario piense en su protección y realice gestiones manuales. El seguro se convierte en una capa invisible que funciona en segundo plano.
 
-### 2. Protecciones Adaptativas
+### 2. Protecciones adaptativas
 **¿Qué es?** Microprotecciones que se activan automáticamente según la situación detectada.
 
 **¿Cómo funciona?**
@@ -74,7 +74,7 @@ GuardianSense AI es un ecosistema de protección inteligente que transforma fund
 
 **Problema que resuelve:** Reemplaza las pólizas estáticas con coberturas dinámicas y contextuales, optimizando tanto la protección como los costos.
 
-### 3. Sistema de Alertas Preventivas
+### 3. Sistema de alertas preventivas
 **¿Qué es?** Notificaciones contextuales que informan al usuario sobre riesgos detectados.
 
 **¿Cómo funciona?**
@@ -84,7 +84,7 @@ GuardianSense AI es un ecosistema de protección inteligente que transforma fund
 
 **Problema que resuelve:** Facilita la prevención activa y la educación del usuario sobre riesgos, aumentando su comprensión y confianza.
 
-### 4. Catálogo de Coberturas
+### 4. Catálogo de coberturas
 **¿Qué es?** Una visualización organizada de todas las protecciones disponibles por categoría.
 
 **¿Cómo funciona?**
@@ -94,7 +94,7 @@ GuardianSense AI es un ecosistema de protección inteligente que transforma fund
 
 **Problema que resuelve:** Simplifica la comprensión de las pólizas tradicionales complejas mediante una interfaz visual e intuitiva.
 
-### 5. Sistema de Gamificación y Motivación
+### 5. Sistema de gamificación y motivación
 **¿Qué es?** Un ecosistema de incentivos que recompensa comportamientos seguros.
 
 **¿Cómo funciona?**
@@ -104,7 +104,7 @@ GuardianSense AI es un ecosistema de protección inteligente que transforma fund
 
 **Problema que resuelve:** Incentiva comportamientos preventivos mediante una economía de tokens y mecánicas de gamificación.
 
-### 6. Estadísticas y Seguimiento
+### 6. Estadísticas y seguimiento
 **¿Qué es?** Métricas sobre la actividad y efectividad de la protección.
 
 **¿Cómo funciona?**
@@ -114,7 +114,7 @@ GuardianSense AI es un ecosistema de protección inteligente que transforma fund
 
 **Problema que resuelve:** Ofrece transparencia total y visualización del valor aportado, reduciendo la desconfianza hacia las aseguradoras.
 
-### 7. Comunidad Protegida
+### 7. Comunidad protegida
 **¿Qué es?** Un sistema social de prevención colectiva.
 
 **¿Cómo funciona?**
@@ -124,7 +124,7 @@ GuardianSense AI es un ecosistema de protección inteligente que transforma fund
 
 **Problema que resuelve:** Crea un sentido de comunidad dentro del ámbito de los seguros, aumentando la colaboración y el valor compartido.
 
-## Arquitectura Técnica
+## Arquitectura técnica
 
 El MVP está construido utilizando:
 
@@ -133,7 +133,7 @@ El MVP está construido utilizando:
 - **Lucide Icons**: Proporciona iconos consistentes para la interfaz
 - **Gestión de Estado**: Utilizando useState y useEffect de React para simular el comportamiento dinámico
 
-## Próximos Pasos
+## Próximos pasos
 
 Este MVP representa una primera fase de implementación. Las futuras iteraciones incluirían:
 
