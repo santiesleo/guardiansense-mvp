@@ -34,7 +34,7 @@ const GuardianSenseMVP = () => {
   const coverageData = [
     { 
       id: 'health',
-      title: 'Salud Personal', 
+      title: 'Salud personal', 
       description: 'Protección basada en biométrica y análisis predictivo',
       icon: 'Heart',
       coverages: [
@@ -46,7 +46,7 @@ const GuardianSenseMVP = () => {
     },
     { 
       id: 'mobility',
-      title: 'Movilidad Inteligente', 
+      title: 'Movilidad inteligente', 
       description: 'Protección contextual basada en ubicación y rutas',
       icon: 'MapPin',
       coverages: [
@@ -58,7 +58,7 @@ const GuardianSenseMVP = () => {
     },
     { 
       id: 'home',
-      title: 'Hogar Conectado', 
+      title: 'Hogar conectado', 
       description: 'Protección para tu vivienda con sensores IoT',
       icon: 'Home',
       coverages: [
@@ -70,7 +70,7 @@ const GuardianSenseMVP = () => {
     },
     { 
       id: 'finance',
-      title: 'Protección Financiera', 
+      title: 'Protección financiera', 
       description: 'Seguridad para transacciones y compras',
       icon: 'CreditCard',
       coverages: [
@@ -434,7 +434,7 @@ const GuardianSenseMVP = () => {
       case 'coverages':
         return (
           <div className="p-4">
-            <h2 className="text-lg font-semibold mb-4 text-gray-700">Tus Coberturas Inteligentes</h2>
+            <h2 className="text-lg font-semibold mb-4 text-gray-700">Tus coberturas inteligentes</h2>
             
             <div className="space-y-4">
               {coverageData.map(coverage => (
@@ -472,7 +472,7 @@ const GuardianSenseMVP = () => {
       case 'activity':
         return (
           <div className="p-4">
-            <h2 className="text-lg font-semibold mb-4 text-gray-700">Tu Actividad</h2>
+            <h2 className="text-lg font-semibold mb-4 text-gray-700">Tu actividad</h2>
             
             {/* Stats */}
             <div className="grid grid-cols-3 gap-3 mb-6">
@@ -493,7 +493,7 @@ const GuardianSenseMVP = () => {
             <div className="mb-6">
               <h3 className="text-md font-semibold mb-3 text-gray-700 flex items-center">
                 <Award className="h-5 w-5 mr-2 text-yellow-500" />
-                Desafíos Activos
+                Desafíos activos
               </h3>
               
               <div className="space-y-4">
@@ -564,7 +564,7 @@ const GuardianSenseMVP = () => {
             
             {/* Community Stats */}
             <div className="mb-6 bg-blue-50 rounded-lg p-4">
-              <h3 className="text-md font-semibold mb-3 text-blue-800">Comunidad Protegida</h3>
+              <h3 className="text-md font-semibold mb-3 text-blue-800">Comunidad protegida</h3>
               <div className="grid grid-cols-2 gap-3">
                 <div className="bg-white rounded-lg p-3 text-center shadow-sm">
                   <div className="text-xl font-bold text-blue-600">42</div>
