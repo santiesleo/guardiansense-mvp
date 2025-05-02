@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Bell, Shield, Home, User, Activity, MapPin, Calendar, AlertTriangle, ChevronRight, Award, Clock, Heart, Zap, CreditCard } from 'lucide-react';
 
+import GuardianSenseMap from './GuardianSenseMap';
+
 const GuardianSenseMVP = () => {
   const [currentTime, setCurrentTime] = useState(new Date('2025-04-30T07:00:00'));
   const [activeProtections, setActiveProtections] = useState([]);
@@ -599,9 +601,12 @@ const GuardianSenseMVP = () => {
             </div>
           </div>
         );
-        
-      default:
-        return null;
+      
+        case 'map':
+            return <GuardianSenseMap />;
+
+        default:
+            return null;
     }
   };
 
@@ -652,6 +657,13 @@ const GuardianSenseMVP = () => {
           >
             <Shield className="h-6 w-6" />
             <span className="text-xs mt-1">Coberturas</span>
+          </button>
+          <button 
+            onClick={() => setCurrentTab('map')}
+            className={`flex flex-col items-center ${currentTab === 'map' ? 'text-blue-600' : 'text-gray-500'}`}
+        >
+            <MapPin className="h-6 w-6" />
+            <span className="text-xs mt-1">Mapa</span>
           </button>
           <button 
             onClick={() => setCurrentTab('activity')}
