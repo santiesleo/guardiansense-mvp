@@ -36,25 +36,30 @@ GuardianSense AI es un ecosistema de protección inteligente que transforma fund
    npm install lucide-react
    ```
 
-3. **Añadir Tailwind CSS:**
-   
-   Edita el archivo `public/index.html` y añade lo siguiente dentro de la etiqueta `<head>`:
-   ```html
-   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-   ```
-
-4. **Iniciar la aplicación:**
+3. **Iniciar la aplicación:**
    ```bash
    npm start
    ```
 
-5. **Acceder a la aplicación:**
+4. **Acceder a la aplicación:**
    
    Abre tu navegador y ve a `http://localhost:3000`
 
 ## Funcionalidades del MVP
 
-### 1. Simulación Temporal y Contextual
+### 1. Mapa de riesgos y sistema comunitario ("Tu zona")
+**¿Qué es?** Un mapa interactivo estilo Waze que muestra zonas de riesgo, alertas comunitarias y condiciones climáticas en tiempo real.
+
+**¿Cómo funciona?**
+- Visualización de zonas coloreadas según nivel de riesgo (rojo: alto riesgo, amarillo: riesgo medio, verde: zonas seguras)
+- Puntos de alerta georreferenciados compartidos por la comunidad
+- Indicador de condiciones climáticas actuales (lluvioso, nublado, soleado)
+- Pestaña de "Alertas Comunitarias" para ver detalles de reportes cercanos
+- Función para reportar nuevos incidentes desde el mapa
+
+**Problema que resuelve:** Crea un sistema de prevención colectiva donde los usuarios comparten información en tiempo real, permitiendo evitar zonas de riesgo y estar informados sobre eventos cercanos que podrían afectar su seguridad.
+
+### 2. Simulación temporal y contextual
 **¿Qué es?** Una representación del día a día de María (usuaria ejemplo) donde el sistema anticipa sus necesidades según el contexto.
 
 **¿Cómo funciona?** 
@@ -64,7 +69,7 @@ GuardianSense AI es un ecosistema de protección inteligente que transforma fund
 
 **Problema que resuelve:** Elimina la necesidad de que el usuario piense en su protección y realice gestiones manuales. El seguro se convierte en una capa invisible que funciona en segundo plano.
 
-### 2. Protecciones adaptativas
+### 3. Protecciones adaptativas
 **¿Qué es?** Microprotecciones que se activan automáticamente según la situación detectada.
 
 **¿Cómo funciona?**
@@ -74,7 +79,7 @@ GuardianSense AI es un ecosistema de protección inteligente que transforma fund
 
 **Problema que resuelve:** Reemplaza las pólizas estáticas con coberturas dinámicas y contextuales, optimizando tanto la protección como los costos.
 
-### 3. Sistema de alertas preventivas
+### 4. Sistema de alertas preventivas
 **¿Qué es?** Notificaciones contextuales que informan al usuario sobre riesgos detectados.
 
 **¿Cómo funciona?**
@@ -84,7 +89,7 @@ GuardianSense AI es un ecosistema de protección inteligente que transforma fund
 
 **Problema que resuelve:** Facilita la prevención activa y la educación del usuario sobre riesgos, aumentando su comprensión y confianza.
 
-### 4. Catálogo de coberturas
+### 5. Catálogo de coberturas
 **¿Qué es?** Una visualización organizada de todas las protecciones disponibles por categoría.
 
 **¿Cómo funciona?**
@@ -94,7 +99,7 @@ GuardianSense AI es un ecosistema de protección inteligente que transforma fund
 
 **Problema que resuelve:** Simplifica la comprensión de las pólizas tradicionales complejas mediante una interfaz visual e intuitiva.
 
-### 5. Sistema de gamificación y motivación
+### 6. Sistema de gamificación y motivación
 **¿Qué es?** Un ecosistema de incentivos que recompensa comportamientos seguros.
 
 **¿Cómo funciona?**
@@ -104,7 +109,7 @@ GuardianSense AI es un ecosistema de protección inteligente que transforma fund
 
 **Problema que resuelve:** Incentiva comportamientos preventivos mediante una economía de tokens y mecánicas de gamificación.
 
-### 6. Estadísticas y seguimiento
+### 7. Estadísticas y seguimiento
 **¿Qué es?** Métricas sobre la actividad y efectividad de la protección.
 
 **¿Cómo funciona?**
@@ -114,7 +119,7 @@ GuardianSense AI es un ecosistema de protección inteligente que transforma fund
 
 **Problema que resuelve:** Ofrece transparencia total y visualización del valor aportado, reduciendo la desconfianza hacia las aseguradoras.
 
-### 7. Comunidad protegida
+### 8. Comunidad protegida
 **¿Qué es?** Un sistema social de prevención colectiva.
 
 **¿Cómo funciona?**
@@ -132,6 +137,7 @@ El MVP está construido utilizando:
 - **Tailwind CSS**: Para el estilo y diseño responsivo
 - **Lucide Icons**: Proporciona iconos consistentes para la interfaz
 - **Gestión de Estado**: Utilizando useState y useEffect de React para simular el comportamiento dinámico
+- **Mapas interactivos**: Visualización espacial de riesgos y alertas comunitarias
 
 ## Próximos pasos
 
@@ -142,6 +148,8 @@ Este MVP representa una primera fase de implementación. Las futuras iteraciones
 3. Desarrollo del sistema de contratos inteligentes con blockchain
 4. Creación de una API para desarrolladores externos
 5. Expansión del sistema comunitario de prevención
+6. Integración con APIs de mapas en tiempo real (Google Maps, Mapbox)
+7. Sistema avanzado de notificaciones georreferenciadas
 
 ---
 
