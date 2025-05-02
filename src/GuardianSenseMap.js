@@ -9,7 +9,7 @@ const GuardianSenseMap = () => {
   // Datos simulados para el mapa
   const alertPoints = [
     { id: 1, lat: 30, lng: 55, type: 'crime', title: 'Robo reportado', time: '10 min' },
-    { id: 2, lat: 40, lng: 20, type: 'traffic', title: 'Accidente de tráfico', time: '5 min' },
+    { id: 2, lat: 40, lng: 20, type: 'traffic', title: 'Accidente de tránsito', time: '5 min' },
     { id: 3, lat: 70, lng: 40, type: 'community', title: 'Zona insegura', time: '15 min' },
     { id: 4, lat: 60, lng: 70, type: 'weather', title: 'Inundación local', time: '7 min' },
   ];
