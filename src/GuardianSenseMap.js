@@ -167,13 +167,16 @@ const GuardianSenseMap = () => {
           )}
           
           {/* Mapa con zonas y alertas */}
-          <div className="relative bg-blue-50 h-80 rounded-lg overflow-hidden border border-gray-200">
+          <div className="relative h-80 rounded-lg overflow-hidden border border-gray-200">
             {/* Imagen de fondo del mapa */}
-            <div className="absolute inset-0 bg-blue-50 opacity-50" style={{ 
-              backgroundImage: `url('/api/placeholder/400/320')`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-            }}></div>
+            <img 
+              src="/images/cali-map.png" 
+              alt="Mapa de Cali" 
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            
+            {/* Capa semi-transparente para mejorar la visibilidad de los elementos */}
+            <div className="absolute inset-0 bg-white opacity-10"></div>
             
             {/* Renderizar zonas de riesgo */}
             {riskZones.map(zone => renderRiskZone(zone))}

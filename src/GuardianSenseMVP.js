@@ -663,7 +663,7 @@ const GuardianSenseMVP = () => {
             className={`flex flex-col items-center ${currentTab === 'map' ? 'text-blue-600' : 'text-gray-500'}`}
         >
             <MapPin className="h-6 w-6" />
-            <span className="text-xs mt-1">Mapa</span>
+            <span className="text-xs mt-1">Tu zona</span>
           </button>
           <button 
             onClick={() => setCurrentTab('activity')}
