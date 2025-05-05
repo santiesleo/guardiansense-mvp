@@ -116,7 +116,7 @@ const GuardianSenseIntegrations = () => {
   const marketplaceData = [
     {
       id: 'health-devices',
-      title: 'Dispositivos de Salud',
+      title: 'Dispositivos de salud',
       devices: [
         { 
           name: 'FitSmart Watch Pro', 
@@ -146,7 +146,7 @@ const GuardianSenseIntegrations = () => {
     },
     {
       id: 'home-devices',
-      title: 'Dispositivos para el Hogar',
+      title: 'Dispositivos para el hogar',
       devices: [
         { 
           name: 'Pack Sensores de Agua (x3)', 
@@ -176,7 +176,7 @@ const GuardianSenseIntegrations = () => {
     },
     {
       id: 'vehicle-devices',
-      title: 'Dispositivos para Vehículos',
+      title: 'Dispositivos para vehículos',
       devices: [
         { 
           name: 'Rastreador GPS Avanzado', 
@@ -224,7 +224,7 @@ const GuardianSenseIntegrations = () => {
       <div className="flex items-center justify-between mb-4">
         <h2 className="text-lg font-semibold text-gray-800 flex items-center">
           <ShoppingBag className="h-5 w-5 mr-2 text-blue-600" />
-          Marketplace de Dispositivos
+          Marketplace de dispositivos
         </h2>
         <button 
           onClick={() => setShowMarketplace(false)}
