@@ -351,7 +351,7 @@ const GuardianSenseMVP = () => {
     
     setUserState(newUserState);
     
-  }, [currentTime, userState]);
+  }, [currentTime]);
 
   const renderIcon = (iconName) => {
     switch(iconName) {
@@ -649,7 +649,7 @@ const GuardianSenseMVP = () => {
         {/* Header */}
         <div className="bg-blue-600 text-white p-4 flex justify-between items-center">
           <div>
-            <h1 className="text-xl font-bold">GuardianSense AI</h1>
+            <h1 className="text-xl font-bold">GuardianSense</h1>
             <p className="text-sm">Protección inteligente</p>
           </div>
           <div className="flex items-center space-x-2">
@@ -731,7 +731,7 @@ const GuardianSenseMVP = () => {
       <div className="max-w-md mx-auto mt-6 bg-white rounded-xl shadow-md overflow-hidden">
         <div className="bg-blue-600 text-white p-3 flex justify-between items-center">
           <div>
-            <h2 className="text-lg font-semibold">Simulación: Un día con GuardianSense AI</h2>
+            <h2 className="text-lg font-semibold">Simulación: Un día con GuardianSense</h2>
             <p className="text-sm">Sigue a María durante un día con protección inteligente</p>
           </div>
           <img 
