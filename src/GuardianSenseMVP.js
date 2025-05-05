@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Bell, Shield, Home, User, Activity, MapPin, Calendar, AlertTriangle, ChevronRight, Award, Clock, Heart, Zap, CreditCard } from 'lucide-react';
+import { Bell, Shield, Home, User, Activity, MapPin, Calendar, AlertTriangle, ChevronRight, Award, Clock, Heart, Zap, CreditCard, Settings } from 'lucide-react';
 
 import GuardianSenseMap from './GuardianSenseMap';
+import GuardianSenseIntegrations from './GuardianSenseIntegrations'; // Importamos el nuevo componente
 
 const GuardianSenseMVP = () => {
   const [currentTime, setCurrentTime] = useState(new Date('2025-04-30T07:00:00'));
@@ -350,7 +351,7 @@ const GuardianSenseMVP = () => {
     
     setUserState(newUserState);
     
-  }, [currentTime]);
+  }, [currentTime, userState]);
 
   const renderIcon = (iconName) => {
     switch(iconName) {
@@ -546,10 +547,21 @@ const GuardianSenseMVP = () => {
       case 'profile':
         return (
           <div className="p-4">
-            {/* Profile Header */}
+            {/* Profile Header with logo */}
+            <div className="flex justify-end mb-2">
+              <img 
+                src="images/Logo-GS.png" 
+                alt="Global Seguros" 
+                className="h-6"
+              />
+            </div>
             <div className="flex items-center mb-6">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mr-4">
-                <User className="h-10 w-10 text-blue-500" />
+              <div className="mr-4 relative">
+                <img 
+                  src="/images/profile.png" 
+                  alt="Foto de perfil" 
+                  className="w-16 h-16 rounded-full object-cover border-2 border-blue-500"
+                />
               </div>
               <div>
                 <h2 className="text-lg font-semibold text-gray-800">{userProfile.name}</h2>
@@ -561,6 +573,24 @@ const GuardianSenseMVP = () => {
                   <Award className="h-4 w-4 text-blue-500 mr-1" />
                   <span className="text-sm font-medium text-gray-700">{userProfile.streak} días de racha</span>
                 </div>
+              </div>
+            </div>
+            
+            {/* Plan Actual - Nuevo */}
+            <div className="mb-6 bg-blue-50 rounded-lg p-4">
+              <h3 className="text-md font-semibold mb-2 text-blue-800">Tu plan actual</h3>
+              <div className="flex justify-between items-center">
+                <div>
+                  <div className="font-medium text-gray-800">Cobertura Ilimitada pospago</div>
+                  <div className="text-sm text-gray-600">Renovación: 15 de mayo, 2025</div>
+                </div>
+                <button 
+                  onClick={() => setCurrentTab('integrations')}
+                  className="text-blue-600 text-sm font-medium flex items-center"
+                >
+                  Cambiar
+                  <ChevronRight className="h-4 w-4 ml-1" />
+                </button>
               </div>
             </div>
             
@@ -602,11 +632,14 @@ const GuardianSenseMVP = () => {
           </div>
         );
       
-        case 'map':
-            return <GuardianSenseMap />;
-
-        default:
-            return null;
+      case 'map':
+        return <GuardianSenseMap />;
+      
+      case 'integrations':
+        return <GuardianSenseIntegrations />; // Renderizamos nuestro nuevo componente
+        
+      default:
+        return null;
     }
   };
 
@@ -619,10 +652,15 @@ const GuardianSenseMVP = () => {
             <h1 className="text-xl font-bold">GuardianSense AI</h1>
             <p className="text-sm">Protección inteligente</p>
           </div>
-          <div className="flex space-x-2">
+          <div className="flex items-center space-x-2">
+            <img 
+              src="images/Logo-GS.png" 
+              alt="Global Seguros" 
+              className="h-10"
+            />
             <button
               onClick={advanceTime}
-              className="bg-white text-blue-600 px-3 py-1 rounded-md text-sm font-medium"
+              className="bg-white text-blue-600 px-4 py-2 rounded-md text-sm font-medium"
             >
               Avanzar tiempo +1h
             </button>
@@ -661,9 +699,16 @@ const GuardianSenseMVP = () => {
           <button 
             onClick={() => setCurrentTab('map')}
             className={`flex flex-col items-center ${currentTab === 'map' ? 'text-blue-600' : 'text-gray-500'}`}
-        >
+          >
             <MapPin className="h-6 w-6" />
             <span className="text-xs mt-1">Tu zona</span>
+          </button>
+          <button 
+            onClick={() => setCurrentTab('integrations')}
+            className={`flex flex-col items-center ${currentTab === 'integrations' ? 'text-blue-600' : 'text-gray-500'}`}
+          >
+            <Settings className="h-6 w-6" />
+            <span className="text-xs mt-1">Planes</span>
           </button>
           <button 
             onClick={() => setCurrentTab('activity')}
@@ -684,9 +729,16 @@ const GuardianSenseMVP = () => {
       
       {/* Context Panel - Un vistazo al sistema */}
       <div className="max-w-md mx-auto mt-6 bg-white rounded-xl shadow-md overflow-hidden">
-        <div className="bg-gray-800 text-white p-3">
-          <h2 className="text-lg font-semibold">Simulación: Un día con GuardianSense AI</h2>
-          <p className="text-sm">Sigue a María durante un día con protección inteligente</p>
+        <div className="bg-blue-600 text-white p-3 flex justify-between items-center">
+          <div>
+            <h2 className="text-lg font-semibold">Simulación: Un día con GuardianSense AI</h2>
+            <p className="text-sm">Sigue a María durante un día con protección inteligente</p>
+          </div>
+          <img 
+            src="images/Logo-GS.png" 
+            alt="Global Seguros" 
+            className="h-8"
+          />
         </div>
         <div className="p-4 text-sm">
           <p className="mb-2">
@@ -723,9 +775,18 @@ const GuardianSenseMVP = () => {
               <div>Detección de fuga de agua en casa</div>
             </div>
           </div>
-          <p className="mt-4 italic text-gray-600">
-            Presiona "Avanzar tiempo" para simular el transcurso del día.
-          </p>
+          <div className="mt-4 flex items-center justify-between">
+            <p className="italic text-gray-600">
+              Presiona "Avanzar tiempo" para simular el transcurso del día.
+            </p>
+            {/* <button
+              onClick={() => setCurrentTab('integrations')}
+              className="text-blue-600 text-sm font-medium flex items-center"
+            >
+              Ver Planes e Integraciones
+              <ChevronRight className="h-4 w-4 ml-1" />
+            </button> */}
+          </div>
         </div>
       </div>
     </div>
