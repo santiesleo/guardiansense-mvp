@@ -68,11 +68,55 @@ const GuardianSenseIntegrations = () => {
     }
   ];
   
+  // Datos para los planes
+  const planData = [
+    {
+      id: 'limited',
+      title: 'Cobertura limitada pospago',
+      price: '$39.900',
+      description: 'Cobertura hasta un valor base con acumulación mensual',
+      features: [
+        'Cobertura hasta $5.000.000',
+        'Soporte 24/7',
+        'Hasta 3 integraciones',
+        'El saldo no utilizado pasa al siguiente mes',
+        'Reportes trimestrales'
+      ]
+    },
+    {
+      id: 'unlimited',
+      title: 'Cobertura ilimitada pospago',
+      price: '$59.900',
+      description: 'Cobertura total sin límites para todas tus necesidades',
+      features: [
+        'Cobertura ilimitada',
+        'Soporte prioritario 24/7',
+        'Todas las integraciones incluidas',
+        'Asistencia premium en emergencias',
+        'Reportes mensuales personalizados'
+      ],
+      recommended: true
+    },
+    {
+      id: 'investment',
+      title: 'Cobertura con inversión',
+      price: '$49.900',
+      description: 'Tu protección genera rendimientos a largo plazo',
+      features: [
+        'Cobertura hasta $3.000.000',
+        'El saldo no utilizado genera intereses',
+        'Tasa mínima garantizada de 3%',
+        'Hasta 5 integraciones',
+        'Asesoría financiera incluida'
+      ]
+    }
+  ];
+  
   // Datos para el marketplace
   const marketplaceData = [
     {
       id: 'health-devices',
-      title: 'Dispositivos de salud',
+      title: 'Dispositivos de Salud',
       devices: [
         { 
           name: 'FitSmart Watch Pro', 
@@ -80,7 +124,7 @@ const GuardianSenseIntegrations = () => {
           description: 'Monitoreo avanzado de salud 24/7',
           financing: '12 cuotas de $24.158',
           tokens: 25,
-          image: '/images/fitwatch.png'
+          image: '/images/fitwatch.jpg'
         },
         { 
           name: 'Glucómetro Inteligente', 
@@ -88,7 +132,7 @@ const GuardianSenseIntegrations = () => {
           description: 'Conectividad inmediata con la app',
           financing: '6 cuotas de $26.650',
           tokens: 15,
-          image: '/images/glucose.png'
+          image: '/images/glucose.jpg'
         },
         { 
           name: 'Tensiómetro Digital Pro', 
@@ -96,13 +140,13 @@ const GuardianSenseIntegrations = () => {
           description: 'Medición precisa con historial en la nube',
           financing: '6 cuotas de $19.983',
           tokens: 12,
-          image: '/images/bp-monitor.png'
+          image: '/images/bp-monitor.jpg'
         }
       ]
     },
     {
       id: 'home-devices',
-      title: 'Dispositivos para el hogar',
+      title: 'Dispositivos para el Hogar',
       devices: [
         { 
           name: 'Pack Sensores de Agua (x3)', 
@@ -110,7 +154,7 @@ const GuardianSenseIntegrations = () => {
           description: 'Detecta fugas y previene inundaciones',
           financing: '3 cuotas de $33.300',
           tokens: 18,
-          image: '/images/water-sensors.png'
+          image: '/images/water-sensors.jpg'
         },
         { 
           name: 'Cámara de Seguridad 360°', 
@@ -118,7 +162,7 @@ const GuardianSenseIntegrations = () => {
           description: 'Visión nocturna y alertas en tiempo real',
           financing: '12 cuotas de $14.992',
           tokens: 20,
-          image: '/images/security-cam.png'
+          image: '/images/security-cam.jpg'
         },
         { 
           name: 'Detector de Humo Inteligente', 
@@ -126,13 +170,13 @@ const GuardianSenseIntegrations = () => {
           description: 'Conectividad WiFi y alertas remotas',
           financing: '3 cuotas de $26.633',
           tokens: 15,
-          image: '/images/smoke-detector.png'
+          image: '/images/smoke-detector.jpg'
         }
       ]
     },
     {
       id: 'vehicle-devices',
-      title: 'Dispositivos para vehículos',
+      title: 'Dispositivos para Vehículos',
       devices: [
         { 
           name: 'Rastreador GPS Avanzado', 
@@ -140,7 +184,7 @@ const GuardianSenseIntegrations = () => {
           description: 'Seguimiento en tiempo real con geofencing',
           financing: '6 cuotas de $24.983',
           tokens: 22,
-          image: '/images/gps-tracker.png'
+          image: '/images/gps-tracker.jpg'
         },
         { 
           name: 'OBD-II Diagnóstico Smart', 
@@ -148,12 +192,12 @@ const GuardianSenseIntegrations = () => {
           description: 'Monitoreo de salud del vehículo',
           financing: '6 cuotas de $21.650',
           tokens: 18,
-          image: '/images/obd-scanner.png'
+          image: '/images/obd-scanner.jpg'
         },
         { 
           name: 'Dashcam HD con Alertas', 
           price: '$199.900', 
-          description: 'Grabación continua y detección de incidentes',
+          description: 'Grabación continua y detección',
           financing: '12 cuotas de $16.658',
           tokens: 25,
           image: '/images/dashcam.png'
@@ -180,7 +224,7 @@ const GuardianSenseIntegrations = () => {
       <div className="flex items-center justify-between mb-4">
         <h2 className="text-lg font-semibold text-gray-800 flex items-center">
           <ShoppingBag className="h-5 w-5 mr-2 text-blue-600" />
-          Marketplace de dispositivos
+          Marketplace de Dispositivos
         </h2>
         <button 
           onClick={() => setShowMarketplace(false)}
@@ -207,15 +251,26 @@ const GuardianSenseIntegrations = () => {
             <div className="p-3 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {category.devices.map((device, idx) => (
                 <div key={idx} className="border rounded-lg overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow">
-                  <div className="h-32 bg-gray-100 flex items-center justify-center">
-                    {/* Imagen del dispositivo (placeholder) */}
-                    <Shield className="h-16 w-16 text-blue-300" />
+                  <div className="h-32 bg-gray-100 flex items-center justify-center overflow-hidden">
+                    {device.image ? (
+                      <img 
+                        src={device.image} 
+                        alt={device.name} 
+                        className="h-full w-full object-cover"
+                      />
+                    ) : (
+                      <Shield className="h-16 w-16 text-blue-300" />
+                    )}
                   </div>
                   <div className="p-3">
                     <h4 className="font-medium text-gray-800">{device.name}</h4>
                     <p className="text-xs text-gray-600 mb-2">{device.description}</p>
                     <div className="flex justify-between items-center mb-2">
                       <span className="font-bold text-blue-600">{device.price}</span>
+                      {/* <span className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full flex items-center">
+                        <Zap className="h-3 w-3 mr-1" />
+                        {device.tokens} tokens
+                      </span> */}
                     </div>
                     <p className="text-xs text-gray-500 mb-3">
                       Financiación: {device.financing}
@@ -430,7 +485,7 @@ const GuardianSenseIntegrations = () => {
           
           <div className="mt-auto p-3 pt-0">
             <button className="w-full bg-blue-600 text-white py-2 rounded-lg text-sm font-medium">
-              Plan actual
+              Plan Actual
             </button>
           </div>
         </div>
