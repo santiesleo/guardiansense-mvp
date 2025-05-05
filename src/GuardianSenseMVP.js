@@ -654,7 +654,7 @@ const GuardianSenseMVP = () => {
           </div>
           <div className="flex items-center space-x-2">
             <img 
-              src="images/Logo-GS.png" 
+              src="images/icon-cifra.png" 
               alt="Global Seguros" 
               className="h-10"
             />
@@ -708,7 +708,7 @@ const GuardianSenseMVP = () => {
             className={`flex flex-col items-center ${currentTab === 'integrations' ? 'text-blue-600' : 'text-gray-500'}`}
           >
             <Settings className="h-6 w-6" />
-            <span className="text-xs mt-1">Planes</span>
+            <span className="text-xs mt-1">Configuración</span>
           </button>
           <button 
             onClick={() => setCurrentTab('activity')}
@@ -735,7 +735,7 @@ const GuardianSenseMVP = () => {
             <p className="text-sm">Sigue a María durante un día con protección inteligente</p>
           </div>
           <img 
-            src="images/Logo-GS.png" 
+            src="images/logo2.png" 
             alt="Global Seguros" 
             className="h-8"
           />

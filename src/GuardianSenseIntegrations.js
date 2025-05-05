@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { 
   Watch, Smartphone, Car, HeartPulse, Home, Shield, 
-  Plus, Zap, Check
+  Plus, Zap, Check, ShoppingBag, CreditCard, Star, ChevronRight
 } from 'lucide-react';
 
 const GuardianSenseIntegrations = () => {
   const [activeTab, setActiveTab] = useState('integrations');
   const [selectedPlan, setSelectedPlan] = useState('unlimited');
+  const [showMarketplace, setShowMarketplace] = useState(false);
+  
   // Datos para las integraciones
   const integrationData = [
     {
@@ -66,45 +68,96 @@ const GuardianSenseIntegrations = () => {
     }
   ];
   
-  // Datos para los planes
-  const planData = [
+  // Datos para el marketplace
+  const marketplaceData = [
     {
-      id: 'unlimited',
-      title: 'Cobertura ilimitada pospago',
-      price: '$59.900',
-      description: 'Cobertura total sin límites para todas tus necesidades',
-      features: [
-        'Cobertura ilimitada',
-        'Soporte prioritario 24/7',
-        'Todas las integraciones incluidas',
-        'Asistencia premium en emergencias',
-        'Reportes mensuales personalizados'
+      id: 'health-devices',
+      title: 'Dispositivos de salud',
+      devices: [
+        { 
+          name: 'FitSmart Watch Pro', 
+          price: '$289.900', 
+          description: 'Monitoreo avanzado de salud 24/7',
+          financing: '12 cuotas de $24.158',
+          tokens: 25,
+          image: '/images/fitwatch.png'
+        },
+        { 
+          name: 'Glucómetro Inteligente', 
+          price: '$159.900', 
+          description: 'Conectividad inmediata con la app',
+          financing: '6 cuotas de $26.650',
+          tokens: 15,
+          image: '/images/glucose.png'
+        },
+        { 
+          name: 'Tensiómetro Digital Pro', 
+          price: '$119.900', 
+          description: 'Medición precisa con historial en la nube',
+          financing: '6 cuotas de $19.983',
+          tokens: 12,
+          image: '/images/bp-monitor.png'
+        }
       ]
     },
     {
-      id: 'limited',
-      title: 'Cobertura limitada pospago',
-      price: '$39.900',
-      description: 'Cobertura hasta un valor base con acumulación mensual',
-      features: [
-        'Cobertura hasta $5.000.000',
-        'Soporte 24/7',
-        'Hasta 3 integraciones',
-        'El saldo no utilizado pasa al siguiente mes',
-        'Reportes trimestrales'
+      id: 'home-devices',
+      title: 'Dispositivos para el hogar',
+      devices: [
+        { 
+          name: 'Pack Sensores de Agua (x3)', 
+          price: '$99.900', 
+          description: 'Detecta fugas y previene inundaciones',
+          financing: '3 cuotas de $33.300',
+          tokens: 18,
+          image: '/images/water-sensors.png'
+        },
+        { 
+          name: 'Cámara de Seguridad 360°', 
+          price: '$179.900', 
+          description: 'Visión nocturna y alertas en tiempo real',
+          financing: '12 cuotas de $14.992',
+          tokens: 20,
+          image: '/images/security-cam.png'
+        },
+        { 
+          name: 'Detector de Humo Inteligente', 
+          price: '$79.900', 
+          description: 'Conectividad WiFi y alertas remotas',
+          financing: '3 cuotas de $26.633',
+          tokens: 15,
+          image: '/images/smoke-detector.png'
+        }
       ]
     },
     {
-      id: 'investment',
-      title: 'Cobertura con inversión',
-      price: '$49.900',
-      description: 'Tu protección genera rendimientos a largo plazo',
-      features: [
-        'Cobertura hasta $3.000.000',
-        'El saldo no utilizado genera intereses',
-        'Tasa mínima garantizada de 3%',
-        'Hasta 5 integraciones',
-        'Asesoría financiera incluida'
+      id: 'vehicle-devices',
+      title: 'Dispositivos para vehículos',
+      devices: [
+        { 
+          name: 'Rastreador GPS Avanzado', 
+          price: '$149.900', 
+          description: 'Seguimiento en tiempo real con geofencing',
+          financing: '6 cuotas de $24.983',
+          tokens: 22,
+          image: '/images/gps-tracker.png'
+        },
+        { 
+          name: 'OBD-II Diagnóstico Smart', 
+          price: '$129.900', 
+          description: 'Monitoreo de salud del vehículo',
+          financing: '6 cuotas de $21.650',
+          tokens: 18,
+          image: '/images/obd-scanner.png'
+        },
+        { 
+          name: 'Dashcam HD con Alertas', 
+          price: '$199.900', 
+          description: 'Grabación continua y detección de incidentes',
+          financing: '12 cuotas de $16.658',
+          tokens: 25,
+          image: '/images/dashcam.png'
+        }
       ]
     }
   ];
@@ -121,9 +174,90 @@ const GuardianSenseIntegrations = () => {
     }
   };
   
+  // Renderiza el contenido del marketplace
+  const renderMarketplaceContent = () => (
+    <div className="p-4">
+      <div className="flex items-center justify-between mb-4">
+        <h2 className="text-lg font-semibold text-gray-800 flex items-center">
+          <ShoppingBag className="h-5 w-5 mr-2 text-blue-600" />
+          Marketplace de dispositivos
+        </h2>
+        <button 
+          onClick={() => setShowMarketplace(false)}
+          className="text-sm text-blue-600 font-medium"
+        >
+          Volver a integraciones
+        </button>
+      </div>
+      
+      <div className="bg-blue-50 p-3 rounded-lg mb-4 flex items-center">
+        <CreditCard className="h-5 w-5 text-blue-600 mr-2" />
+        <p className="text-sm text-blue-700">
+          Financiación disponible hasta en 12 cuotas sin interés y envío gratis en compras mayores a $100.000
+        </p>
+      </div>
+      
+      <div className="space-y-6">
+        {marketplaceData.map(category => (
+          <div key={category.id} className="border rounded-lg overflow-hidden bg-white">
+            <div className="p-4 border-b bg-gray-50">
+              <h3 className="font-semibold text-gray-800">{category.title}</h3>
+            </div>
+            
+            <div className="p-3 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {category.devices.map((device, idx) => (
+                <div key={idx} className="border rounded-lg overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow">
+                  <div className="h-32 bg-gray-100 flex items-center justify-center">
+                    {/* Imagen del dispositivo (placeholder) */}
+                    <Shield className="h-16 w-16 text-blue-300" />
+                  </div>
+                  <div className="p-3">
+                    <h4 className="font-medium text-gray-800">{device.name}</h4>
+                    <p className="text-xs text-gray-600 mb-2">{device.description}</p>
+                    <div className="flex justify-between items-center mb-2">
+                      <span className="font-bold text-blue-600">{device.price}</span>
+                    </div>
+                    <p className="text-xs text-gray-500 mb-3">
+                      Financiación: {device.financing}
+                    </p>
+                    <button className="w-full bg-blue-600 text-white py-2 rounded-lg text-sm font-medium">
+                      Agregar al carrito
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+
   // Renderiza el contenido de la pestaña de integraciones
   const renderIntegrationsContent = () => (
     <div className="p-4">
+      {/* Call to Action para el Marketplace */}
+      <div className="mb-6 bg-gradient-to-r from-blue-500 to-blue-700 rounded-lg overflow-hidden shadow-md">
+        <div className="p-4 text-white">
+          <div className="flex items-start">
+            <ShoppingBag className="h-12 w-12 mr-4 text-white bg-blue-600 p-2 rounded-lg" />
+            <div>
+              <h3 className="font-bold text-xl mb-1">¿No tienes los dispositivos?</h3>
+              <p className="text-blue-100 mb-3">
+                Explora nuestro marketplace de dispositivos compatibles con financiación flexible y gana tokens por cada compra.
+              </p>
+              <button 
+                onClick={() => setShowMarketplace(true)}
+                className="bg-white text-blue-700 px-4 py-2 rounded-full text-sm font-medium inline-flex items-center hover:bg-blue-50"
+              >
+                Explorar dispositivos
+                <ChevronRight className="h-4 w-4 ml-1" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div className="flex items-center justify-between mb-4">
         <h2 className="text-lg font-semibold text-gray-800">Integraciones disponibles</h2>
         <span className="text-sm text-blue-600 font-medium flex items-center">
@@ -161,14 +295,16 @@ const GuardianSenseIntegrations = () => {
                       Activo
                     </span>
                   ) : (
-                    <button className="flex items-center bg-blue-100 text-blue-700 px-3 py-1.5 rounded-full text-xs font-medium">
-                      <Plus className="h-3 w-3 mr-1" />
-                      Conectar
-                      <span className="ml-1.5 bg-blue-700 text-white px-1.5 py-0.5 rounded-full flex items-center">
-                        <Zap className="h-3 w-3 mr-0.5" />
-                        {device.tokens}
-                      </span>
-                    </button>
+                    <div className="flex items-center">
+                      <button className="flex items-center bg-blue-100 text-blue-700 px-3 py-1.5 rounded-full text-xs font-medium">
+                        <Plus className="h-3 w-3 mr-1" />
+                        Conectar
+                        <span className="ml-1.5 bg-blue-700 text-white px-1.5 py-0.5 rounded-full flex items-center">
+                          <Zap className="h-3 w-3 mr-0.5" />
+                          {device.tokens}
+                        </span>
+                      </button>
+                    </div>
                   )}
                 </div>
               ))}
@@ -196,202 +332,164 @@ const GuardianSenseIntegrations = () => {
         <div>
           <div className="text-sm font-medium text-gray-800">Tu plan actual:</div>
           <div className="text-base font-semibold text-blue-700">
-            {planData.find(plan => plan.id === selectedPlan)?.title}
+            Cobertura ilimitada pospago
           </div>
         </div>
       </div>
       
-      <div className="space-y-4">
-        {planData.map(plan => (
-          <div 
-            key={plan.id} 
-            className={`border rounded-lg overflow-hidden ${selectedPlan === plan.id ? 'border-blue-500 bg-blue-50' : 'bg-white'}`}
-          >
-            <div className="p-4">
-              <div className="flex justify-between items-start mb-2">
-                <h3 className="font-semibold text-gray-800">{plan.title}</h3>
-                <div className="text-right">
-                  <div className="text-lg font-bold text-blue-700">{plan.price}</div>
-                  <div className="text-xs text-gray-500">mensual</div>
-                </div>
+      {/* Layout de planes vertical, con el premium en el medio */}
+      <div className="space-y-4 max-w-lg mx-auto">
+        {/* Plan Limitado */}
+        <div className="border rounded-lg overflow-hidden flex flex-col bg-white">
+          <div className="p-3 text-center border-b">
+            <div className="text-base font-bold text-blue-700">Cobertura <span className="text-blue-900">$39.</span><span className="text-sm align-top">900</span></div>
+            <div className="text-xs text-gray-600">limitada pospago</div>
+          </div>
+          
+          <div className="p-3 text-sm">
+            <p className="text-gray-700 mb-3 text-xs">
+              Cobertura hasta un valor base con acumulación mensual
+            </p>
+            
+            <div className="space-y-2 mb-4 text-xs">
+              <div className="flex items-start">
+                <Check className="h-3 w-3 mr-1 mt-0.5 text-green-500 flex-shrink-0" />
+                <span className="text-gray-700">Cobertura hasta $5.000.000</span>
               </div>
-              
-              <p className="text-sm text-gray-600 mb-3">{plan.description}</p>
-              
-              <div className="space-y-2 mb-4">
-                {plan.features.map((feature, index) => (
-                  <div key={index} className="flex items-start text-sm">
-                    <Check className="h-4 w-4 text-green-500 mr-2 mt-0.5" />
-                    <span className="text-gray-700">{feature}</span>
-                  </div>
-                ))}
+              <div className="flex items-start">
+                <Check className="h-3 w-3 mr-1 mt-0.5 text-green-500 flex-shrink-0" />
+                <span className="text-gray-700">Soporte 24/7</span>
               </div>
-              
-              {selectedPlan === plan.id ? (
-                <button className="w-full bg-blue-600 text-white py-2 rounded-lg font-medium">
-                  Plan Actual
-                </button>
-              ) : (
-                <button 
-                  onClick={() => setSelectedPlan(plan.id)}
-                  className="w-full bg-white border border-blue-600 text-blue-600 py-2 rounded-lg font-medium hover:bg-blue-50"
-                >
-                  Cambiar a este plan
-                </button>
-              )}
+              <div className="flex items-start">
+                <Check className="h-3 w-3 mr-1 mt-0.5 text-green-500 flex-shrink-0" />
+                <span className="text-gray-700">Hasta 3 integraciones</span>
+              </div>
+              <div className="flex items-start">
+                <Check className="h-3 w-3 mr-1 mt-0.5 text-green-500 flex-shrink-0" />
+                <span className="text-gray-700">El saldo no utilizado pasa al siguiente mes</span>
+              </div>
+              <div className="flex items-start">
+                <Check className="h-3 w-3 mr-1 mt-0.5 text-green-500 flex-shrink-0" />
+                <span className="text-gray-700">Reportes trimestrales</span>
+              </div>
             </div>
           </div>
-        ))}
+          
+          <div className="mt-auto p-3 pt-0">
+            <button 
+              onClick={() => setSelectedPlan('limited')}
+              className="w-full bg-white border border-blue-600 text-blue-600 py-2 rounded-lg text-sm font-medium hover:bg-blue-50"
+            >
+              Cambiar a este plan
+            </button>
+          </div>
+        </div>
+        
+        {/* Plan Premium (Destacado) */}
+        <div className="border-2 border-blue-500 rounded-lg overflow-hidden flex flex-col bg-blue-50 shadow-md transform scale-105 z-10">
+          <div className="bg-yellow-400 text-center py-1">
+            <div className="flex items-center justify-center text-xs font-bold text-gray-800">
+              <Star className="h-3 w-3 mr-1 text-yellow-600" fill="currentColor" />
+              RECOMENDADO
+            </div>
+          </div>
+          
+          <div className="p-3 text-center border-b">
+            <div className="text-base font-bold text-blue-700">Cobertura <span className="text-blue-900">$59.</span><span className="text-sm align-top">900</span></div>
+            <div className="text-xs text-gray-600">ilimitada pospago</div>
+          </div>
+          
+          <div className="p-3 text-sm">
+            <p className="text-blue-700 mb-3 text-xs font-medium">
+              Cobertura total sin límites para todas tus necesidades
+            </p>
+            
+            <div className="space-y-2 mb-4 text-xs">
+              <div className="flex items-start">
+                <Check className="h-3 w-3 mr-1 mt-0.5 text-blue-600 flex-shrink-0" />
+                <span className="text-blue-800">Cobertura ilimitada</span>
+              </div>
+              <div className="flex items-start">
+                <Check className="h-3 w-3 mr-1 mt-0.5 text-blue-600 flex-shrink-0" />
+                <span className="text-blue-800">Soporte prioritario 24/7</span>
+              </div>
+              <div className="flex items-start">
+                <Check className="h-3 w-3 mr-1 mt-0.5 text-blue-600 flex-shrink-0" />
+                <span className="text-blue-800">Todas las integraciones incluidas</span>
+              </div>
+              <div className="flex items-start">
+                <Check className="h-3 w-3 mr-1 mt-0.5 text-blue-600 flex-shrink-0" />
+                <span className="text-blue-800">Asistencia premium en emergencias</span>
+              </div>
+              <div className="flex items-start">
+                <Check className="h-3 w-3 mr-1 mt-0.5 text-blue-600 flex-shrink-0" />
+                <span className="text-blue-800">Reportes mensuales personalizados</span>
+              </div>
+            </div>
+          </div>
+          
+          <div className="mt-auto p-3 pt-0">
+            <button className="w-full bg-blue-600 text-white py-2 rounded-lg text-sm font-medium">
+              Plan actual
+            </button>
+          </div>
+        </div>
+        
+        {/* Plan Inversión */}
+        <div className="border rounded-lg overflow-hidden flex flex-col bg-white">
+          <div className="p-3 text-center border-b">
+            <div className="text-base font-bold text-blue-700">Cobertura <span className="text-blue-900">$49.</span><span className="text-sm align-top">900</span></div>
+            <div className="text-xs text-gray-600">con inversión</div>
+          </div>
+          
+          <div className="p-3 text-sm">
+            <p className="text-gray-700 mb-3 text-xs">
+              Tu protección genera rendimientos a largo plazo
+            </p>
+            
+            <div className="space-y-2 mb-4 text-xs">
+              <div className="flex items-start">
+                <Check className="h-3 w-3 mr-1 mt-0.5 text-green-500 flex-shrink-0" />
+                <span className="text-gray-700">Cobertura hasta $3.000.000</span>
+              </div>
+              <div className="flex items-start">
+                <Check className="h-3 w-3 mr-1 mt-0.5 text-green-500 flex-shrink-0" />
+                <span className="text-gray-700">El saldo no utilizado genera intereses</span>
+              </div>
+              <div className="flex items-start">
+                <Check className="h-3 w-3 mr-1 mt-0.5 text-green-500 flex-shrink-0" />
+                <span className="text-gray-700">Tasa mínima garantizada de 3%</span>
+              </div>
+              <div className="flex items-start">
+                <Check className="h-3 w-3 mr-1 mt-0.5 text-green-500 flex-shrink-0" />
+                <span className="text-gray-700">Hasta 5 integraciones</span>
+              </div>
+              <div className="flex items-start">
+                <Check className="h-3 w-3 mr-1 mt-0.5 text-green-500 flex-shrink-0" />
+                <span className="text-gray-700">Asesoría financiera incluida</span>
+              </div>
+            </div>
+          </div>
+          
+          <div className="mt-auto p-3 pt-0">
+            <button 
+              onClick={() => setSelectedPlan('investment')}
+              className="w-full bg-white border border-blue-600 text-blue-600 py-2 rounded-lg text-sm font-medium hover:bg-blue-50"
+            >
+              Cambiar a este plan
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );
-  
-  
-  // Renderiza el contenido de la pestaña de perfil mejorada
-//   const renderEnhancedProfileContent = () => {
-//     // Datos para la pestaña de perfil
-//     const userProfile = {
-//       name: 'María García',
-//       type: 'Profesional',
-//       age: 35,
-//       tokens: 320,
-//       streak: 14,
-//       joinDate: '15 de febrero de 2025',
-//       plan: planData.find(plan => plan.id === selectedPlan)?.title,
-//       settings: [
-//         { id: 1, title: 'Privacidad y datos', icon: 'Shield' },
-//         { id: 2, title: 'Notificaciones', icon: 'Bell' },
-//         { id: 3, title: 'Dispositivos conectados', icon: 'Activity' },
-//         { id: 4, title: 'Método de pago', icon: 'CreditCard' }
-//       ]
-//     };
-    
-//     return (
-//       <div className="p-4">
-//         {/* Logo de Global Seguros en la parte superior */}
-//         <div className="flex justify-end mb-2">
-//           <img 
-//             src="/images/Logo-GS.png" 
-//             alt="Global Seguros" 
-//             className="h-6"
-//           />
-//         </div>
-        
-//         {/* Profile Header */}
-//         <div className="flex items-center mb-6">
-//           <div className="mr-4 relative">
-//             <img 
-//               src="images/profile-picture.jpg" 
-//               alt="Foto de perfil" 
-//               className="w-16 h-16 rounded-full object-cover border-2 border-blue-500"
-//             />
-//             <div className="absolute bottom-0 right-0 bg-blue-500 rounded-full p-1">
-//               <Plus className="h-3 w-3 text-white" />
-//             </div>
-//           </div>
-//           <div>
-//             <h2 className="text-lg font-semibold text-gray-800">{userProfile.name}</h2>
-//             <p className="text-sm text-gray-600">{userProfile.type}, {userProfile.age} años</p>
-//             <div className="flex items-center mt-1">
-//               <Zap className="h-4 w-4 text-yellow-500 mr-1" />
-//               <span className="text-sm font-medium text-gray-700">{userProfile.tokens} tokens</span>
-//               <div className="mx-2 text-gray-300">•</div>
-//               <Award className="h-4 w-4 text-blue-500 mr-1" />
-//               <span className="text-sm font-medium text-gray-700">{userProfile.streak} días de racha</span>
-//             </div>
-//           </div>
-//         </div>
-        
-//         {/* Plan actual */}
-//         <div className="mb-6 bg-blue-50 rounded-lg p-4">
-//           <h3 className="text-md font-semibold mb-2 text-blue-800">Tu plan actual</h3>
-//           <div className="flex justify-between items-center">
-//             <div>
-//               <div className="font-medium text-gray-800">{userProfile.plan}</div>
-//               <div className="text-sm text-gray-600">Renovación: 15 de mayo, 2025</div>
-//             </div>
-//             <button 
-//               onClick={() => setActiveTab('plans')}
-//               className="text-blue-600 text-sm font-medium flex items-center"
-//             >
-//               Cambiar
-//               <ChevronRight className="h-4 w-4 ml-1" />
-//             </button>
-//           </div>
-//         </div>
-        
-//         {/* Community Stats */}
-//         <div className="mb-6 bg-gray-50 rounded-lg p-4">
-//           <h3 className="text-md font-semibold mb-3 text-gray-800">Comunidad protegida</h3>
-//           <div className="grid grid-cols-2 gap-3">
-//             <div className="bg-white rounded-lg p-3 text-center shadow-sm border">
-//               <div className="text-xl font-bold text-blue-600">42</div>
-//               <div className="text-xs text-gray-600">Miembros</div>
-//             </div>
-//             <div className="bg-white rounded-lg p-3 text-center shadow-sm border">
-//               <div className="text-xl font-bold text-green-600">18</div>
-//               <div className="text-xs text-gray-600">Alertas compartidas</div>
-//             </div>
-//           </div>
-//         </div>
-        
-//         {/* Dispositivos conectados */}
-//         <div className="mb-6">
-//           <div className="flex justify-between items-center mb-3">
-//             <h3 className="text-md font-semibold text-gray-700">Dispositivos conectados</h3>
-//             <button 
-//               onClick={() => setActiveTab('integrations')}
-//               className="text-blue-600 text-sm font-medium flex items-center"
-//             >
-//               Ver todos
-//               <ChevronRight className="h-4 w-4 ml-1" />
-//             </button>
-//           </div>
-          
-//           <div className="space-y-2">
-//             <div className="flex justify-between items-center p-3 bg-white border rounded-lg">
-//               <div className="flex items-center">
-//                 <Watch className="h-5 w-5 text-blue-500 mr-3" />
-//                 <span className="text-gray-800">Apple Watch</span>
-//               </div>
-//               <span className="text-xs text-green-500 font-medium">Conectado</span>
-//             </div>
-//             <div className="flex justify-between items-center p-3 bg-white border rounded-lg">
-//               <div className="flex items-center">
-//                 <Smartphone className="h-5 w-5 text-green-500 mr-3" />
-//                 <span className="text-gray-800">Health App</span>
-//               </div>
-//               <span className="text-xs text-green-500 font-medium">Conectado</span>
-//             </div>
-//           </div>
-//         </div>
-        
-//         {/* Settings */}
-//         <h3 className="text-md font-semibold mb-3 text-gray-700">Configuración</h3>
-//         <div className="space-y-2">
-//           {userProfile.settings.map(setting => (
-//             <div key={setting.id} className="flex items-center justify-between p-3 bg-white border rounded-lg">
-//               <div className="flex items-center">
-//                 {setting.icon === 'Shield' ? <Shield className="h-5 w-5 text-blue-500 mr-3" /> :
-//                  setting.icon === 'Bell' ? <Bell className="h-5 w-5 text-yellow-500 mr-3" /> :
-//                  setting.icon === 'Activity' ? <Activity className="h-5 w-5 text-green-500 mr-3" /> :
-//                  <CreditCard className="h-5 w-5 text-purple-500 mr-3" />}
-//                 <span className="text-gray-800">{setting.title}</span>
-//               </div>
-//               <ChevronRight className="h-5 w-5 text-gray-400" />
-//             </div>
-//           ))}
-//         </div>
-        
-//         <div className="mt-6 text-center text-sm text-gray-500">
-//           <p>Miembro desde: {userProfile.joinDate}</p>
-//         </div>
-//       </div>
-//     );
-//   };
-  
+
   // Renderiza el contenido según la pestaña activa
   const renderContent = () => {
+    if (showMarketplace) {
+      return renderMarketplaceContent();
+    }
+    
     switch(activeTab) {
       case 'integrations':
         return renderIntegrationsContent();
@@ -408,13 +506,13 @@ const GuardianSenseIntegrations = () => {
       {/* Tabs de navegación */}
       <div className="flex border-b">
         <button 
-          onClick={() => setActiveTab('integrations')}
+          onClick={() => {setActiveTab('integrations'); setShowMarketplace(false);}}
           className={`flex-1 py-3 text-center text-sm font-medium ${activeTab === 'integrations' ? 'text-blue-600 border-b-2 border-blue-600' : 'text-gray-500'}`}
         >
           Integraciones
         </button>
         <button 
-          onClick={() => setActiveTab('plans')}
+          onClick={() => {setActiveTab('plans'); setShowMarketplace(false);}}
           className={`flex-1 py-3 text-center text-sm font-medium ${activeTab === 'plans' ? 'text-blue-600 border-b-2 border-blue-600' : 'text-gray-500'}`}
         >
           Planes
