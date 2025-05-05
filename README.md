@@ -228,7 +228,7 @@ El MVP está construido utilizando:
 - **Gestión de Estado**: Utilizando useState y useEffect de React para simular el comportamiento dinámico
 - **Mapas interactivos**: Visualización espacial de riesgos y alertas comunitarias
 
-## Propuesta de Valor Diferenciada
+## Propuesta de valor diferenciada
 
 - **De reactivo a predictivo**: En lugar de responder después del siniestro, previene activamente los riesgos.
 - **De complejo a simple**: Reemplaza pólizas complejas con protecciones automáticas y visualmente comprensibles.
