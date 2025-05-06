@@ -1,5 +1,7 @@
 # GuardianSense MVP
 
+Vídeo demostrativo: https://www.loom.com/share/8dcb3d38347a4ca1897408047ae4e42f?sid=726ea0cd-b43d-4524-85d1-635b2a561b01
+
 ## Descripción del proyecto
 
 GuardianSense AI es un ecosistema de protección inteligente que transforma fundamentalmente el concepto de seguro tradicional, pasando de un modelo reactivo a uno predictivo y preventivo. Este MVP (Producto Mínimo Viable) demuestra cómo la tecnología puede anticipar necesidades y activar microprotecciones automáticamente, creando una capa de seguridad invisible pero omnipresente.
