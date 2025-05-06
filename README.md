@@ -179,14 +179,24 @@ El sistema se construye sobre:
 **Problema que resuelve:** Simplifica la comprensión de las pólizas tradicionales complejas mediante una interfaz visual e intuitiva.
 
 ### 6. Sistema de gamificación y motivación
-**¿Qué es?** Un ecosistema de incentivos que recompensa comportamientos seguros.
+**¿Qué es?** Un ecosistema de incentivos que recompensa comportamientos seguros a través de tokens digitales.
 
 **¿Cómo funciona?**
 - Se visualiza en las pestañas "Actividad" y "Perfil"
 - Incluye tokens acumulados, desafíos activos con progreso y recompensas
 - Establece un sistema de "racha" por días consecutivos con protección
+- Los tokens se obtienen por: conectar dispositivos, completar desafíos, mantener comportamientos seguros y compartir alertas comunitarias
 
-**Problema que resuelve:** Incentiva comportamientos preventivos mediante una economía de tokens y mecánicas de gamificación.
+**Usos de los tokens:**
+
+- Descuentos en la renovación del plan
+- Compra de dispositivos en el marketplace con precios reducidos
+- Desbloqueo de coberturas premium adicionales
+- Reducción de deducibles en caso de siniestros
+- Acceso a servicios exclusivos (asistencia prioritaria, consultas con especialistas)
+- Canje por recompensas de partners asociados (descuentos en comercios, servicios)
+
+**Problema que resuelve:** Incentiva comportamientos preventivos mediante una economía de tokens y mecánicas de gamificación, creando un ciclo virtuoso donde prevenir riesgos genera beneficios tangibles para el usuario.
 
 ### 7. Estadísticas y seguimiento
 **¿Qué es?** Métricas sobre la actividad y efectividad de la protección.
