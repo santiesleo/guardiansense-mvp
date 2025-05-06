@@ -61,9 +61,9 @@ const GuardianSenseIntegrations = () => {
       description: 'Dispositivos para la seguridad de tu hogar',
       icon: 'Home',
       devices: [
-        { name: 'Sensores de Agua', connected: true, tokens: 12 },
-        { name: 'Cámaras de Seguridad', connected: false, tokens: 18 },
-        { name: 'Detector de Humo', connected: false, tokens: 15 }
+        { name: 'Sensores de agua', connected: true, tokens: 12 },
+        { name: 'Cámaras de seguridad', connected: false, tokens: 18 },
+        { name: 'Detector de humo', connected: false, tokens: 15 }
       ]
     }
   ];
@@ -119,7 +119,7 @@ const GuardianSenseIntegrations = () => {
       title: 'Dispositivos de salud',
       devices: [
         { 
-          name: 'FitSmart Watch Pro', 
+          name: 'FitSmart watch pro', 
           price: '$289.900', 
           description: 'Monitoreo avanzado de salud 24/7',
           financing: '12 cuotas de $24.158',
@@ -127,7 +127,7 @@ const GuardianSenseIntegrations = () => {
           image: '/images/fitwatch.jpg'
         },
         { 
-          name: 'Glucómetro Inteligente', 
+          name: 'Glucómetro inteligente', 
           price: '$159.900', 
           description: 'Conectividad inmediata con la app',
           financing: '6 cuotas de $26.650',
@@ -135,7 +135,7 @@ const GuardianSenseIntegrations = () => {
           image: '/images/glucose.jpg'
         },
         { 
-          name: 'Tensiómetro Digital Pro', 
+          name: 'Tensiómetro digital pro', 
           price: '$119.900', 
           description: 'Medición precisa con historial en la nube',
           financing: '6 cuotas de $19.983',
@@ -149,7 +149,7 @@ const GuardianSenseIntegrations = () => {
       title: 'Dispositivos para el hogar',
       devices: [
         { 
-          name: 'Pack Sensores de Agua (x3)', 
+          name: 'Pack sensores de agua (x3)', 
           price: '$99.900', 
           description: 'Detecta fugas y previene inundaciones',
           financing: '3 cuotas de $33.300',
@@ -157,7 +157,7 @@ const GuardianSenseIntegrations = () => {
           image: '/images/water-sensors.jpg'
         },
         { 
-          name: 'Cámara de Seguridad 360°', 
+          name: 'Cámara de seguridad 360°', 
           price: '$179.900', 
           description: 'Visión nocturna y alertas en tiempo real',
           financing: '12 cuotas de $14.992',
@@ -165,7 +165,7 @@ const GuardianSenseIntegrations = () => {
           image: '/images/security-cam.jpg'
         },
         { 
-          name: 'Detector de Humo Inteligente', 
+          name: 'Detector de humo inteligente', 
           price: '$79.900', 
           description: 'Conectividad WiFi y alertas remotas',
           financing: '3 cuotas de $26.633',
@@ -179,7 +179,7 @@ const GuardianSenseIntegrations = () => {
       title: 'Dispositivos para vehículos',
       devices: [
         { 
-          name: 'Rastreador GPS Avanzado', 
+          name: 'Rastreador GPS avanzado', 
           price: '$149.900', 
           description: 'Seguimiento en tiempo real con geofencing',
           financing: '6 cuotas de $24.983',
@@ -187,7 +187,7 @@ const GuardianSenseIntegrations = () => {
           image: '/images/gps-tracker.jpg'
         },
         { 
-          name: 'OBD-II Diagnóstico Smart', 
+          name: 'OBD-II diagnóstico smart', 
           price: '$129.900', 
           description: 'Monitoreo de salud del vehículo',
           financing: '6 cuotas de $21.650',
@@ -195,7 +195,7 @@ const GuardianSenseIntegrations = () => {
           image: '/images/obd-scanner.jpg'
         },
         { 
-          name: 'Dashcam HD con Alertas', 
+          name: 'Dashcam HD con alertas de desastres', 
           price: '$199.900', 
           description: 'Grabación continua y detección',
           financing: '12 cuotas de $16.658',
